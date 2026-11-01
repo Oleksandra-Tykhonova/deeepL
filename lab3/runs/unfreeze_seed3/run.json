@@ -1,0 +1,201 @@
+{
+  "regime": "unfreeze",
+  "seed": 3,
+  "classes": [
+    "buildings",
+    "forest",
+    "glacier",
+    "mountain",
+    "sea",
+    "street"
+  ],
+  "transforms": {
+    "train": [
+      {
+        "RandomResizedCrop": {
+          "size": 160,
+          "scale": [
+            0.7,
+            1.0
+          ],
+          "ratio": [
+            0.75,
+            1.3333333333333333
+          ],
+          "interpolation": "bilinear",
+          "antialias": true
+        }
+      },
+      {
+        "RandomHorizontalFlip": {
+          "p": 0.5
+        }
+      },
+      "ToTensor",
+      {
+        "Normalize": {
+          "mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "std": [
+            0.229,
+            0.224,
+            0.225
+          ]
+        }
+      }
+    ],
+    "eval": [
+      {
+        "Resize": {
+          "size": [
+            160,
+            160
+          ],
+          "interpolation": "bilinear",
+          "antialias": true
+        }
+      },
+      "ToTensor",
+      {
+        "Normalize": {
+          "mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "std": [
+            0.229,
+            0.224,
+            0.225
+          ]
+        }
+      }
+    ],
+    "image_mode": "RGB (PIL convert)"
+  },
+  "model": {
+    "architecture": "torchvision.models.resnet18",
+    "weights": "IMAGENET1K_V1",
+    "fc": "Linear(512, 6), default init",
+    "trainable_modules": [
+      "layer4",
+      "fc"
+    ],
+    "eval_modules_during_training": [
+      "conv1",
+      "bn1",
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "bn_momentum": 0.1,
+    "bn_eps": 1e-05,
+    "dtype": "float32"
+  },
+  "optimizer": {
+    "name": "AdamW",
+    "groups": [
+      {
+        "modules": [
+          "fc"
+        ],
+        "lr": 0.003
+      },
+      {
+        "modules": [
+          "layer4"
+        ],
+        "lr": 0.0003
+      }
+    ],
+    "weight_decay": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "amsgrad": false
+  },
+  "loss": "CrossEntropyLoss(reduction='mean')",
+  "loop": {
+    "epochs": 8,
+    "train_batch_size": 32,
+    "shuffle": true,
+    "drop_last": false,
+    "num_workers": 0,
+    "eval_batch_size": 64,
+    "steps_per_epoch": 38,
+    "total_steps": 304,
+    "lr_schedule": null,
+    "grad_clip": null,
+    "amp": false,
+    "label_smoothing": 0.0,
+    "class_weights": null,
+    "early_stopping": false,
+    "checkpoint": "after epoch 8"
+  },
+  "git": {
+    "commit": "7045856407b3548a5ae67c9672df1ea39073fc82",
+    "dirty": false
+  },
+  "split_csv_sha256": "2355c7d27aa1ee5ebd86f5d4a5fa396181a647cd0c5336a4f380ce965a3fd039",
+  "versions": {
+    "python": "3.12.3",
+    "torch": "2.14.1+cu130",
+    "torchvision": "0.29.1+cu130",
+    "numpy": "2.5.4"
+  },
+  "device": {
+    "type": "cpu",
+    "name": "x86_64",
+    "torch_threads": 2
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.5305580002069473,
+      "val_macro_f1": 0.8091044532365483
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.20584784458080926,
+      "val_macro_f1": 0.899074416851763
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.11713445651034514,
+      "val_macro_f1": 0.8802714963053426
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.09956903417905172,
+      "val_macro_f1": 0.9059188101879849
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.07479107331484557,
+      "val_macro_f1": 0.8904649529934017
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.06311098615328471,
+      "val_macro_f1": 0.8847626038877086
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.07630313982255757,
+      "val_macro_f1": 0.887590809547572
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.13329019354035457,
+      "val_macro_f1": 0.8908588665939527
+    }
+  ],
+  "final_train_loss": 0.13329019354035457,
+  "final_val_macro_f1": 0.8908588665939527,
+  "train_seconds": 320.23100234599997
+}

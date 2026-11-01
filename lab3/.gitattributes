@@ -1,0 +1,4 @@
+split.csv -text
+*.json -text
+*.npy binary
+*.pt binary

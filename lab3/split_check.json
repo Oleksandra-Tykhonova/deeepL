@@ -1,0 +1,218 @@
+{
+  "table": {
+    "buildings": {
+      "train": {
+        "got": [
+          200,
+          1996761
+        ],
+        "expected": [
+          200,
+          1996761
+        ],
+        "match": true
+      },
+      "validation": {
+        "got": [
+          218,
+          4837323
+        ],
+        "expected": [
+          218,
+          4837323
+        ],
+        "match": true
+      },
+      "test": {
+        "got": [
+          219,
+          4837559
+        ],
+        "expected": [
+          219,
+          4837559
+        ],
+        "match": true
+      }
+    },
+    "forest": {
+      "train": {
+        "got": [
+          200,
+          2032625
+        ],
+        "expected": [
+          200,
+          2032625
+        ],
+        "match": true
+      },
+      "validation": {
+        "got": [
+          237,
+          5276962
+        ],
+        "expected": [
+          237,
+          5276962
+        ],
+        "match": true
+      },
+      "test": {
+        "got": [
+          237,
+          5291326
+        ],
+        "expected": [
+          237,
+          5291326
+        ],
+        "match": true
+      }
+    },
+    "glacier": {
+      "train": {
+        "got": [
+          200,
+          2183923
+        ],
+        "expected": [
+          200,
+          2183923
+        ],
+        "match": true
+      },
+      "validation": {
+        "got": [
+          276,
+          6135652
+        ],
+        "expected": [
+          276,
+          6135652
+        ],
+        "match": true
+      },
+      "test": {
+        "got": [
+          277,
+          6157250
+        ],
+        "expected": [
+          277,
+          6157250
+        ],
+        "match": true
+      }
+    },
+    "mountain": {
+      "train": {
+        "got": [
+          200,
+          1950345
+        ],
+        "expected": [
+          200,
+          1950345
+        ],
+        "match": true
+      },
+      "validation": {
+        "got": [
+          262,
+          5789535
+        ],
+        "expected": [
+          262,
+          5789535
+        ],
+        "match": true
+      },
+      "test": {
+        "got": [
+          263,
+          5849765
+        ],
+        "expected": [
+          263,
+          5849765
+        ],
+        "match": true
+      }
+    },
+    "sea": {
+      "train": {
+        "got": [
+          200,
+          1987613
+        ],
+        "expected": [
+          200,
+          1987613
+        ],
+        "match": true
+      },
+      "validation": {
+        "got": [
+          255,
+          5655068
+        ],
+        "expected": [
+          255,
+          5655068
+        ],
+        "match": true
+      },
+      "test": {
+        "got": [
+          255,
+          5668011
+        ],
+        "expected": [
+          255,
+          5668011
+        ],
+        "match": true
+      }
+    },
+    "street": {
+      "train": {
+        "got": [
+          200,
+          1841817
+        ],
+        "expected": [
+          200,
+          1841817
+        ],
+        "match": true
+      },
+      "validation": {
+        "got": [
+          250,
+          5541845
+        ],
+        "expected": [
+          250,
+          5541845
+        ],
+        "match": true
+      },
+      "test": {
+        "got": [
+          251,
+          5547533
+        ],
+        "expected": [
+          251,
+          5547533
+        ],
+        "match": true
+      }
+    }
+  },
+  "all_match": true,
+  "overlap_files": [],
+  "n_rows": 4200,
+  "n_unique_files": 4200
+}

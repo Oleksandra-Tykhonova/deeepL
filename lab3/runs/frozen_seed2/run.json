@@ -1,0 +1,195 @@
+{
+  "regime": "frozen",
+  "seed": 2,
+  "classes": [
+    "buildings",
+    "forest",
+    "glacier",
+    "mountain",
+    "sea",
+    "street"
+  ],
+  "transforms": {
+    "train": [
+      {
+        "RandomResizedCrop": {
+          "size": 160,
+          "scale": [
+            0.7,
+            1.0
+          ],
+          "ratio": [
+            0.75,
+            1.3333333333333333
+          ],
+          "interpolation": "bilinear",
+          "antialias": true
+        }
+      },
+      {
+        "RandomHorizontalFlip": {
+          "p": 0.5
+        }
+      },
+      "ToTensor",
+      {
+        "Normalize": {
+          "mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "std": [
+            0.229,
+            0.224,
+            0.225
+          ]
+        }
+      }
+    ],
+    "eval": [
+      {
+        "Resize": {
+          "size": [
+            160,
+            160
+          ],
+          "interpolation": "bilinear",
+          "antialias": true
+        }
+      },
+      "ToTensor",
+      {
+        "Normalize": {
+          "mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "std": [
+            0.229,
+            0.224,
+            0.225
+          ]
+        }
+      }
+    ],
+    "image_mode": "RGB (PIL convert)"
+  },
+  "model": {
+    "architecture": "torchvision.models.resnet18",
+    "weights": "IMAGENET1K_V1",
+    "fc": "Linear(512, 6), default init",
+    "trainable_modules": [
+      "fc"
+    ],
+    "eval_modules_during_training": [
+      "conv1",
+      "bn1",
+      "layer1",
+      "layer2",
+      "layer3",
+      "layer4"
+    ],
+    "bn_momentum": 0.1,
+    "bn_eps": 1e-05,
+    "dtype": "float32"
+  },
+  "optimizer": {
+    "name": "AdamW",
+    "groups": [
+      {
+        "modules": [
+          "fc"
+        ],
+        "lr": 0.003
+      }
+    ],
+    "weight_decay": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "amsgrad": false
+  },
+  "loss": "CrossEntropyLoss(reduction='mean')",
+  "loop": {
+    "epochs": 8,
+    "train_batch_size": 32,
+    "shuffle": true,
+    "drop_last": false,
+    "num_workers": 0,
+    "eval_batch_size": 64,
+    "steps_per_epoch": 38,
+    "total_steps": 304,
+    "lr_schedule": null,
+    "grad_clip": null,
+    "amp": false,
+    "label_smoothing": 0.0,
+    "class_weights": null,
+    "early_stopping": false,
+    "checkpoint": "after epoch 8"
+  },
+  "git": {
+    "commit": "7045856407b3548a5ae67c9672df1ea39073fc82",
+    "dirty": false
+  },
+  "split_csv_sha256": "2355c7d27aa1ee5ebd86f5d4a5fa396181a647cd0c5336a4f380ce965a3fd039",
+  "versions": {
+    "python": "3.12.3",
+    "torch": "2.14.1+cu130",
+    "torchvision": "0.29.1+cu130",
+    "numpy": "2.5.4"
+  },
+  "device": {
+    "type": "cpu",
+    "name": "x86_64",
+    "torch_threads": 2
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.6516484981775283,
+      "val_macro_f1": 0.8816264967248513
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.28036912967761357,
+      "val_macro_f1": 0.8849338238693268
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.2400899146993955,
+      "val_macro_f1": 0.8816294084865054
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.21335910856723786,
+      "val_macro_f1": 0.8747753714730737
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.20254630982875824,
+      "val_macro_f1": 0.8794458281898109
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.1830612979332606,
+      "val_macro_f1": 0.8837993490154835
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.17146109739939372,
+      "val_macro_f1": 0.8758980841850085
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.17565549542506537,
+      "val_macro_f1": 0.8785003294351141
+    }
+  ],
+  "final_train_loss": 0.17565549542506537,
+  "final_val_macro_f1": 0.8785003294351141,
+  "train_seconds": 263.25179785500006
+}

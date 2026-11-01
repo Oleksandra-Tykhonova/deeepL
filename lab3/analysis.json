@@ -1,0 +1,188 @@
+{
+  "split_sha256": "2355c7d27aa1ee5ebd86f5d4a5fa396181a647cd0c5336a4f380ce965a3fd039",
+  "runs": [
+    {
+      "n": 1,
+      "regime": "scratch",
+      "seed": 1,
+      "train_loss": 0.9838872480392457,
+      "val_f1": 0.472441556310997,
+      "seconds": 516.536806148,
+      "commit": "7045856407b3548a5ae67c9672df1ea39073fc82",
+      "dirty": false
+    },
+    {
+      "n": 2,
+      "regime": "frozen",
+      "seed": 1,
+      "train_loss": 0.16545248786608377,
+      "val_f1": 0.8842012435043274,
+      "seconds": 265.975772055,
+      "commit": "7045856407b3548a5ae67c9672df1ea39073fc82",
+      "dirty": false
+    },
+    {
+      "n": 3,
+      "regime": "frozen",
+      "seed": 2,
+      "train_loss": 0.17565549542506537,
+      "val_f1": 0.8785003294351141,
+      "seconds": 263.25179785500006,
+      "commit": "7045856407b3548a5ae67c9672df1ea39073fc82",
+      "dirty": false
+    },
+    {
+      "n": 4,
+      "regime": "frozen",
+      "seed": 3,
+      "train_loss": 0.18958318144083022,
+      "val_f1": 0.8885955696095422,
+      "seconds": 263.5583347009999,
+      "commit": "7045856407b3548a5ae67c9672df1ea39073fc82",
+      "dirty": false
+    },
+    {
+      "n": 5,
+      "regime": "unfreeze",
+      "seed": 1,
+      "train_loss": 0.08366167752693097,
+      "val_f1": 0.8570406764897959,
+      "seconds": 308.33279772900005,
+      "commit": "7045856407b3548a5ae67c9672df1ea39073fc82",
+      "dirty": false
+    },
+    {
+      "n": 6,
+      "regime": "unfreeze",
+      "seed": 2,
+      "train_loss": 0.09673403458669781,
+      "val_f1": 0.8875472122976417,
+      "seconds": 312.7281914820003,
+      "commit": "7045856407b3548a5ae67c9672df1ea39073fc82",
+      "dirty": false
+    },
+    {
+      "n": 7,
+      "regime": "unfreeze",
+      "seed": 3,
+      "train_loss": 0.13329019354035457,
+      "val_f1": 0.8908588665939527,
+      "seconds": 320.23100234599997,
+      "commit": "7045856407b3548a5ae67c9672df1ea39073fc82",
+      "dirty": false
+    }
+  ],
+  "effects": {
+    "F_scratch_1": 0.472441556310997,
+    "frozen_mean": 0.8837657141829945,
+    "frozen_range": 0.010095240174428088,
+    "unfreeze_mean": 0.8784822517937968,
+    "unfreeze_range": 0.033818190104156876,
+    "R": 0.033818190104156876,
+    "delta_pre": 0.41132415787199755,
+    "delta_unf": -0.005283462389197746,
+    "delta_total": 0.4060406954827998,
+    "verdict_pre": "|Δ| > R",
+    "verdict_unf": "|Δ| ≤ R"
+  },
+  "selection": {
+    "regime": "frozen",
+    "seed": 3,
+    "logged_val_f1": 0.8885955696095422,
+    "recomputed_val_f1_cpu": 0.8885955696095422,
+    "max_abs_logit_diff_vs_saved": 0.0
+  },
+  "test": {
+    "macro_f1": 0.891912624642122,
+    "accuracy": 0.8901464713715047,
+    "n": 1502,
+    "se_accuracy": 0.008068685291986602,
+    "confusion": [
+      [
+        187,
+        2,
+        0,
+        1,
+        2,
+        27
+      ],
+      [
+        0,
+        237,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        215,
+        49,
+        10,
+        2
+      ],
+      [
+        1,
+        0,
+        40,
+        212,
+        10,
+        0
+      ],
+      [
+        2,
+        1,
+        1,
+        1,
+        250,
+        0
+      ],
+      [
+        12,
+        0,
+        0,
+        2,
+        1,
+        236
+      ]
+    ],
+    "errors": [
+      {
+        "file": "20179.jpg",
+        "true": "glacier",
+        "pred": "mountain",
+        "prob": 0.8772462010383606,
+        "pair_count": 49
+      },
+      {
+        "file": "20116.jpg",
+        "true": "mountain",
+        "pred": "glacier",
+        "prob": 0.6006903052330017,
+        "pair_count": 40
+      },
+      {
+        "file": "20083.jpg",
+        "true": "buildings",
+        "pred": "street",
+        "prob": 0.5937624573707581,
+        "pair_count": 27
+      },
+      {
+        "file": "20353.jpg",
+        "true": "street",
+        "pred": "buildings",
+        "prob": 0.8439235091209412,
+        "pair_count": 12
+      },
+      {
+        "file": "20243.jpg",
+        "true": "glacier",
+        "pred": "sea",
+        "prob": 0.8064780235290527,
+        "pair_count": 10
+      }
+    ]
+  }
+}

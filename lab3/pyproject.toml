@@ -1,0 +1,13 @@
+[project]
+name = "lab3"
+version = "0.1.0"
+description = "ЛР3. Обчислювальний експеримент і трансферне навчання (ResNet-18, Intel Image Classification)"
+requires-python = "==3.12.*"
+dependencies = [
+    "matplotlib==3.11.2",
+    "numpy==2.5.4",
+    "pillow==13.0.0",
+    "scikit-learn==1.9.1",
+    "torch==2.14.1",
+    "torchvision==0.29.1",
+]

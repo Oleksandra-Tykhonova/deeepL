@@ -1,0 +1,50 @@
+SHA-256 split.csv однаковий у всіх 7 журналах: 2355c7d27aa1ee5ebd86f5d4a5fa396181a647cd0c5336a4f380ce965a3fd039
+
+[3] Сім запусків
+ # Режим     Зерно   Втрата  macro-F1   Час, с
+ 1 scratch       1   0.9839    0.4724    516.5
+ 2 frozen        1   0.1655    0.8842    266.0
+ 3 frozen        2   0.1757    0.8785    263.3
+ 4 frozen        3   0.1896    0.8886    263.6
+ 5 unfreeze      1   0.0837    0.8570    308.3
+ 6 unfreeze      2   0.0967    0.8875    312.7
+ 7 unfreeze      3   0.1333    0.8909    320.2
+
+[4] Розклад ефектів
+  F_scratch_1: 0.4724
+  frozen_mean: 0.8838
+  frozen_range: 0.0101
+  unfreeze_mean: 0.8785
+  unfreeze_range: 0.0338
+  R: 0.0338
+  delta_pre: 0.4113
+  delta_unf: -0.0053
+  delta_total: 0.4060
+  verdict_pre: |Δ| > R
+  verdict_unf: |Δ| ≤ R
+
+[5] Перевірка вибору
+  regime: frozen
+  seed: 3
+  logged_val_f1: 0.8885955696095422
+  recomputed_val_f1_cpu: 0.8885955696095422
+  max_abs_logit_diff_vs_saved: 0.0
+
+[5] Test (CPU, один раз)
+  macro-F1 = 0.8919, accuracy = 0.8901, SE = 0.0081 (n = 1502)
+  Матриця плутанини (рядки — справжній, стовпці — передбачений):
+             building    forest   glacier  mountain       sea    street
+   building       187         2         0         1         2        27
+     forest         0       237         0         0         0         0
+    glacier         0         1       215        49        10         2
+   mountain         1         0        40       212        10         0
+        sea         2         1         1         1       250         0
+     street        12         0         0         2         1       236
+  П'ять характерних помилок:
+    20179.jpg  glacier    → mountain   p=0.8772  таких помилок: 49
+    20116.jpg  mountain   → glacier    p=0.6007  таких помилок: 40
+    20083.jpg  buildings  → street     p=0.5938  таких помилок: 27
+    20353.jpg  street     → buildings  p=0.8439  таких помилок: 12
+    20243.jpg  glacier    → sea        p=0.8065  таких помилок: 10
+
+Результати: /home/claude/lab3/analysis.json
